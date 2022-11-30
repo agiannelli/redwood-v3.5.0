@@ -1,10 +1,14 @@
 import type { FindArticleQuery, FindArticleQueryVariables } from 'types/graphql'
+
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
 
 export const QUERY = gql`
   query FindArticleQuery($id: Int!) {
-    article: article(id: $id) {
+    article: post(id: $id) {
       id
+      title
+      body
+      createdAt
     }
   }
 `
