@@ -29,7 +29,7 @@ interface FormValues {
 }
 
 const ContactPage = () => {
-  const [create] = useMutation<
+  const [create, { loading, error }] = useMutation<
     CreateContactMutation,
     CreateContactMutationVariables
   >(CREATE_CONTACT)
@@ -79,7 +79,7 @@ const ContactPage = () => {
         />
         <FieldError name="message" className="error" />
 
-        <Submit>Save</Submit>
+        <Submit disabled={loading}>Save</Submit>
       </Form>
     </>
   )
